@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <f:loadBundle basename="locale" var="localeBundle"/>
+    <h:head>
+        <meta charset="UTF-8"/>
+	<h:outputStylesheet library="css" name="styles.css"/>
+        <title>#{localeBundle.APP_TITLE}</title>
+    </h:head>
+    <h:body>
+	<h:form>
+	    <h:panelGrid styleClass="tabbedPane" columnClasses="displayPanel">
+		<!-- Tabs -->
+
+		<f:facet name="header">
+		    <h:panelGrid columns="2" styleClass="tabbedPaneHeader">
+			<h:commandLink tabindex="1" title="#{localeBundle.TAB_SHOP_CAPTION}"
+				       styleClass="#{tp.shopStyle}"
+				       actionListener="#{tp.shopAction}">
+			    #{localeBundle.TAB_SHOP_CAPTION}
+			</h:commandLink>
+
+			<h:commandLink tabindex="2" title="#{localeBundle.tab_product_caption}"
+				       styleClass="#{tp.productStyle}"
+				       actionListener="#{tp.productAction}">
+			   #{localeBundle.tab_product_caption}
+			</h:commandLink>
+		    </h:panelGrid>
+		</f:facet>
+
+		<!-- Tabbed pane content -->
+			<ui:include src="shop.xhtml"></ui:include>
+			<ui:include src="product.xhtml"></ui:include>
+	    </h:panelGrid>
+	</h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,8 @@
+PROGRAM_USAGE=Usage\:
+INPUT_STRING_IS_EMPTY=Input string is empty
+NUMBER_SYMBOLS=The unique symbol number is
+INPUT_EMPTY_POINTER=NULL pointer
+CANNOT_READ_FILE=Cannot get access to file
+FILE_DOESNT_EXIST=File does not exists 
+OBJECT_IS_NOT_FILE=Object is not a file
+PREV_DATA_NOT_LOAD=Cannot restore last state

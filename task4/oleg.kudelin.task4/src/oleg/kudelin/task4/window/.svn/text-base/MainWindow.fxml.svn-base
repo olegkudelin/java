@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?scenebuilder-preview-i18n-resource ../../../../locale_ru_RU.properties?>
+
+<AnchorPane prefHeight="454.9998779296875" prefWidth="419.0" xmlns:fx="http://javafx.com/fxml" fx:controller="oleg.kudelin.task4.window.MainWindowController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <TabPane prefHeight="455.0" prefWidth="419.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <tabs>
+        <Tab id="" text="%tab.shop.caption">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="405.0" prefWidth="391.0">
+              <children>
+                <Button alignment="BOTTOM_LEFT" minWidth="32.0" mnemonicParsing="false" onAction="#addShop" prefWidth="37.0" text="+" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+                <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#deleteShop" text="-" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="37.0" />
+                <Button mnemonicParsing="false" onAction="#shopFilterButtonClick" text="%button.find.caption" AnchorPane.bottomAnchor="1.0" AnchorPane.rightAnchor="0.0" />
+                <TextField fx:id="findShopTextField" prefWidth="245.0" promptText="%inputTextForSearch" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="71.0" />
+                <ListView id="listView" fx:id="shopListView" editable="true" prefHeight="386.0" prefWidth="419.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                <Region id="veilRegion" fx:id="veilShopRegion" prefHeight="414.0" prefWidth="419.0" style="-fx-background-color: rgba(0, 0, 0, 0.4)" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                <ProgressIndicator id="progressIndicator" fx:id="progressShopIndicator" blendMode="SCREEN" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" opacity="0.39" prefHeight="85.0" prefWidth="85.0" progress="-0.77" AnchorPane.bottomAnchor="164.5" AnchorPane.leftAnchor="167.0" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="164.5" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="%tab.product.caption">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <TableView id="tableView" fx:id="productTableView" prefHeight="387.0" prefWidth="419.0" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <columns>
+                    <TableColumn id="" minWidth="40.0" prefWidth="270.0" text="%product.table.column.name" fx:id="nameProductColumn" />
+                    <TableColumn id="" maxWidth="500.0" prefWidth="120.0" text="%product.table.column.recommended_price" fx:id="priceProductColumn" />
+                  </columns>
+                </TableView>
+                <Button mnemonicParsing="false" onAction="#addProduct" text="+" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+                <Button mnemonicParsing="false" onAction="#deleteProduct" text="-" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="33.0" />
+                <Button id="" mnemonicParsing="false" onAction="#productFilterButtonClick" text="%button.find.caption" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                <TextField fx:id="findProductTextField" prefWidth="244.0" promptText="%inputTextForSearch" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="71.0" />
+                <Region id="veilRegion" fx:id="veilProductRegion" prefHeight="414.0" prefWidth="419.0" style="-fx-background-color: rgba(0, 0, 0, 0.4)" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0" />
+                <ProgressIndicator id="progressIndicator" fx:id="progressProductIndicator" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" opacity="0.39" prefHeight="85.0" prefWidth="85.0" progress="-0.77" AnchorPane.bottomAnchor="164.0" AnchorPane.leftAnchor="167.0" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="165.0" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+  </children>
+</AnchorPane>

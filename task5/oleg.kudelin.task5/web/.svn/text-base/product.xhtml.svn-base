@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition rendered="#{tp.isShopCurrent()}">
+        <h:panelGrid columns="2" styleClass="tabbedPaneHeader" rendered="#{tp.isProductCurrent()}">
+            <h:outputText value="#{localeBundle.product_table_column_name}" />
+            <h:inputText value="#{ProductNameFilter.patternString}"/>
+            <h:outputText value="#{localeBundle.product_table_column_recommended_price}" />
+            <h:inputText value="#{RecommendedPriceFilter.patternString}"/>
+            <h:outputText />
+            <h:commandButton action="#{CurrentProductList.filtered()}" value="#{localeBundle.filter}" />
+
+            <h:commandButton action="#{CurrentProductList.getPrev()}" value="#{localeBundle.prev}"/>
+            <h:commandButton action="#{CurrentProductList.getNext()}" value="#{localeBundle.next}"/>
+        </h:panelGrid>
+        <h:outputLabel value="#{CurrentProductList.currentStatusText()}" rendered="#{tp.isProductCurrent()}" />
+        <h:dataTable value="#{CurrentProductList.outputList}" var="product" rendered="#{tp.isProductCurrent()}"
+                     styleClass="orders" headerClass="ordersHeader" rowClasses="oddColumn, evenColumn">
+            <h:column>
+                <f:facet name="header">#{localeBundle.product_table_column_name}</f:facet>
+                <h:outputText value="#{product.productName}" rendered="#{not product.isEditing}"/>
+                <h:inputText id="#{localeBundle.nameProductInputTextID}" valueChangeListener="#{CurrentProductList.edit}" value="#{product.productName}" rendered="#{product.isEditing}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">#{localeBundle.product_table_column_recommended_price}</f:facet>
+                <h:outputText value="#{product.recommendedPrice}" rendered="#{not product.isEditing}"/>
+                <h:inputText id="#{localeBundle.recommendedPriceProductInputTextID}" valueChangeListener="#{CurrentProductList.edit}" value="#{product.recommendedPrice}" rendered="#{product.isEditing}"/>
+            </h:column>
+            <h:column class="orders">
+                <h:selectBooleanCheckbox value="#{product.isEditing}" title="#{localeBundle.edit}" onchange="submit();"/>
+            </h:column>
+            <h:column class="orders">
+                <h:commandLink value="#{localeBundle.delete}" action="#{CurrentProductList.delete(product)}"/>
+            </h:column>
+            <h:column class="orders">
+                <h:commandLink value="#{localeBundle.add}" action="#{CurrentProductList.add(product)}"/>
+            </h:column>            
+        </h:dataTable>
+    </ui:composition>
+</html>
+

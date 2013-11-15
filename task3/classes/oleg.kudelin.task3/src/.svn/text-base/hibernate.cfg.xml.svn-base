@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="Session">
+  <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+  <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/simbirsoft</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+  <property name="connection.username">postgres</property>
+  <property name="connection.password"></property>
+  <property name="hibernate.hbm2ddl.auto">update</property>
+  <mapping class="oleg.kudelin.task3.orm.Product"/>
+  <mapping class="oleg.kudelin.task3.orm.Shop"/>
+  <mapping class="oleg.kudelin.task3.orm.ShopProduct"/>
+  <mapping class="oleg.kudelin.task3.orm.ShopProductPK"/>
+ </session-factory>
+</hibernate-configuration>
