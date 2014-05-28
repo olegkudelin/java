@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+version ="1.0"
+sourceCompatibility = '1.7'
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+if (!hasProperty('mainClass')) {
+    ext.mainClass = 'oleg.kudelin.ecwide.test1.FileDownloader' 
+}
+
+mainClassName = 'oleg.kudelin.ecwide.test1.FileDownloader'
+
+jar {
+    manifest {
+        attributes 'Class-Path': '.', 'Main-Class': mainClassName
+    }
+    archiveName = "utility-${version}.jar"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'org.testng', name: 'testng', version: '6.1.1'
+}
+
+/*
+taskrun encode(type: JavaExec, dependsOn: build) {
+    main = "oleg.kudelin.ecwide.test1.FileDownloader"
+    classpath = files("libs/groovy-all-2.1.7.jar", "build/libs/utility-${version}.jar")
+    args = "-n 5 -l 2000k -f /Users/oleg/test/linkfile/links.txt -o /Users/oleg/test/dir".split().toList()
+}
+*/
+
+test {
+  useTestNG()
+}
