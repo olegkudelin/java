@@ -11,7 +11,7 @@ import javax.annotation.Nonnull;
  */
 public class SearchOptions {
 
-	protected static final String PARAMS_IGNORE_CASE = "-ignoreCase";
+	protected static final String PARAMS_IGNORE_CASE = "-i";
 	protected static final String PARAMS_PATTERN = "-pattern";
 
 	private String fileName;
@@ -59,7 +59,7 @@ public class SearchOptions {
 	 * @return строка параметров
 	 */
 	public static String showUsageString() {
-		return "[" + PARAMS_IGNORE_CASE + "] [" + PARAMS_PATTERN + "word_pattern] file_name";
+		return "[" + PARAMS_IGNORE_CASE + "] [" + PARAMS_PATTERN + " word_pattern] file_name";
 	}
 
 	/**

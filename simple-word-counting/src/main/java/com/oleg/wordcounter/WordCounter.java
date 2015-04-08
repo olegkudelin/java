@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 /**
  *
  * Считает число слов в строке
- * Если при исоздании не было ничего передано возвращает полное число слов
+ * Если при создании не было ничего передано возвращает полное число слов
  * Если при создании была указана строка, то считает только те слова,
  * в которых встречатся указанная строка.
  * Дополнительно можно указать следует ли учитывать регистр, если подсчитывается определенное слово.
@@ -101,7 +101,7 @@ class WordCounter implements ToLongFunction<String> {
 	  * Можно подсчитать полное число слов или число пределенных слов, которое можно задать подстрокой, которая является его частью
 	  * Дополнительно можно указать учитывать регистр или нет
 	  *
-	  * Вызов программы "WordCounter [-ignoreCase] [-pattern word_substring] fileName"
+	  * Вызов программы "WordCounter [-i] [-pattern word_substring] fileName"
 	  *
  	  * @param args
 	  */
@@ -124,7 +124,7 @@ class WordCounter implements ToLongFunction<String> {
 			}
 		} catch (IllegalAccessException e) {
 			log.log(Level.SEVERE, "Error input params", e);
-			System.out.println("Usage: " + WordCounter.class.getSimpleName() + " " + SearchOptions.showUsageString());
+			System.out.println("Usage: java -jar simple-word-counting-1.0.jar " + SearchOptions.showUsageString());
 		}
 	}
 
